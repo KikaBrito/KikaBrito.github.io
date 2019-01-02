@@ -1,9 +1,20 @@
 <html>
-   <head>
-      <meta name="description" content="Curso de HTML, CSS, SEO e Monetização! Online completo e gratuito">
-      <title> Redirecionando para o site HTML Progressivo - Curso de HTML completo, online e gratuito </title>
-      <meta http-equiv="refresh" content="5; http://www.htmlprogressivo.net">
-   </head>
+  <BODY onload=startCountdown()>
+<SCRIPT language=JavaScript>
  
-Voce sera redirecionado ao site HTML Progressivo dentro de 5 segundos...
+var g_iCount = new Number();
+ 
+// de 30 a 0 //
+var g_iCount = 30;
+ 
+function startCountdown(){
+       if((g_iCount - 1) >= 0){
+               g_iCount = g_iCount - 1;
+               numberCountdown.innerText = '00:00.0' + g_iCount;
+               setTimeout('startCountdown()',1000);
+       }
+}
+</SCRIPT>
+<FONT face=verdana color=#1e90ff size=2><B>
+<DIV id=numberCountdown align=center></DIV></FONT>
 </html>
