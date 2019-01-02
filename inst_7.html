@@ -135,8 +135,36 @@
                 <!--Grid column-->
                 <div class="col-md-10 pt-5">
                     <div class="d-flex flex-row justify-content-center align-items-center">
-                        <div class="p-4 default-color-dark"><h4 class="h4-responsive"><strong>08:00</strong></h4></div>
-                    </div>
+                        <div class="p-4 default-color-dark"><h4 class="h4-responsive"><strong>
+                          <p id="demo"></p>
+                            <script language=JavaScript>
+                              function startTimer(duration, display) {
+                                var start = Date.now(), diff, minutes, seconds;
+                                function timer() {
+                                    // get the number of seconds that have elapsed since 
+                                    // startTimer() was called
+                                    diff = duration - (((Date.now() - start) / 1000) | 0);
+                                    // does the same job as parseInt truncates the float
+                                    minutes = (diff / 60) | 0;
+                                    seconds = (diff % 60) | 0;
+                                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                                    seconds = seconds < 10 ? "0" + seconds : seconds;
+                                    display.textContent = minutes + ":" + seconds; 
+                                    if (diff <= 0) {
+                                      diff = 0;
+                                    }
+                                };
+                                timer();
+                                setInterval(timer, 1000);
+                              }
+                              window.onload = function () {
+                                var eightMinutes = 60 * 8,
+                                display = document.querySelector('#time');
+                                startTimer(eightMinutes, display);
+                              };
+                            </script>
+                        <div><span id="time"></span></div></strong></h4></div>
+                    </div>  
                     <div class="d-flex flex-row justify-content-center align-items-center">
                         <div class="p-3"><h4 class="h4-responsive text-danger"><strong>Time remaining</strong></h4></div>
                     </div>
